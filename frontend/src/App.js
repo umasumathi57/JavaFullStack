@@ -7,7 +7,7 @@ import Vj from "./sriuma";
 export function App() 
 {
     return (
-    <p>another new file</p>
+    <p>another new files</p>
     )
 }
 //export {App}
