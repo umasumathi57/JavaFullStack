@@ -7,12 +7,12 @@ import Vj from "./sriuma";
 export function App() 
 {
     return (
-    <p>another new files</p>
+    <h1> Software company</h1>
     )
 }
 //export {App}
 // export default App 
 export const Manoj=()=>{
     
-    return(<><h1>Web developer</h1><Vj/></>)
+    return(<><h2>Frontend Developer</h2><Vj/></>)
 }

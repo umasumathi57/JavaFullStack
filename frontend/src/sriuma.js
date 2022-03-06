@@ -2,7 +2,7 @@ import React from "react";
 
 const Vj=()=>
 {
-    return(<h1>frndz</h1>)
+    return(<h3>React js</h3>)
 }
 
 export default Vj;
