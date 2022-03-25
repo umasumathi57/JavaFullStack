@@ -26,6 +26,11 @@ export const join=(ob)=>
 {
     arr.push(ob)
 }
-export const read=(pos)=>{
-    return arr[pos]
+export const read=(index)=>{
+    return arr[index]
+}
+
+export const change=()=>
+{
+    return 
 }

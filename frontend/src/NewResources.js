@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"
-
-
-import { join } from './Api'
-
 export const Hire=()=>
 {
     const[product,setProduct]=useState(

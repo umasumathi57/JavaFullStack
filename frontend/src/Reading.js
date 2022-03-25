@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { read } from "./Api";
 
 export const Reading=(sriuma)=>{
 
@@ -6,7 +7,35 @@ export const Reading=(sriuma)=>{
     {
         "proName":"",
         "proId":0,
-        "proLoc:""
+        "proLoc":""
+    })
+
+    useEffect( ()=>{
+       callReading() 
     }
 
+
+    )
+    const callReading=()=>{
+
+        setStudy(read(sriuma.who))
+    }
+    return(
+
+            <>
+                <div className="container">
+                    <div className="card bg-dark text-warning"> 
+
+                        <div className="card-body">
+                            <p>{study.proName}</p>
+                            <p>{study.proId}</p>
+                            <p>{study.proLoc}</p>
+                        </div>
+                    </div>               
+                </div>
+            </>
+
+    )
+
 }
+

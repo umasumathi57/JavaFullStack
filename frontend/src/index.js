@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { Home } from './Home'
-import { Hire } from './NewResources'
+// import { Hire } from './NewResources'
 //import { Bs } from './manoj'
 
 //render-("what to show","where to show")
