@@ -30,7 +30,22 @@ export const read=(index)=>{
     return arr[index]
 }
 
-export const change=()=>
+export const change=(indx,data)=>
 {
-    return 
+    return arr[indx]===data
+}
+
+export const fetch=(name)=>{
+    const tmp=arr.filter( (elements)=>{
+
+        return elements.proName===name
+    }  )
+}
+
+export const del=()=>{
+
+arr=arr.filter((dataa,position)=>{
+    return dataa!==arr[position]
+}
+)
 }

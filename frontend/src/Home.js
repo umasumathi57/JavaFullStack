@@ -4,6 +4,7 @@ import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"
 import { list } from "./Api";
 import { Hire } from "./NewResources";
 import { Reading } from "./Reading";
+import { Update } from "./Update";
 // import { read } from "./Api";
 
 
@@ -13,7 +14,9 @@ export const Home=()=>{
     const[localArr,setlocalArr]=useState([])
     const[createView,setCreateView]=useState(false)
     const[readView,setreadView]=useState(false)
+    const[updateView,setupdateView]=useState(false)
     const[pos,setPos]=useState(0)
+    const[whole,setWhole]=useState({})
 
 
     
@@ -27,12 +30,8 @@ useEffect(()=>
     hai()
 },[]
 
-)
-
-
-    
+)  
   return(
-    
 
   <div>          
 {(createView)?
@@ -47,6 +46,21 @@ onClick={
     }}>
 </button>
 back
+</>
+:
+(updateView)?
+<>
+<Update who={pos} mention={whole}/>
+<button className="btn btn-outline-warning" 
+onClick={
+()=>{
+
+    setupdateView(false)
+}
+}>
+    <i className="bi bi-skip-backward-btn-fill"></i> Back
+
+</button>
 </>
 :
 (readView)?
@@ -79,6 +93,7 @@ AddNew
                                         <th> Name</th>
                                         <th> Id</th>
                                         <th>Location</th>
+                                        <th>Action</th>
                                         
                                     </tr>
                                 </thead>
@@ -97,12 +112,21 @@ AddNew
                                             <td>{elements.proId}</td>
                                             <td>{elements.proLoc}</td>
                                             <td>
-                                                <button className="btn btn-outline-warning rounded-circle">
+                                                <button className="btn btn-outline-warning" 
+                                                onClick={()=>{
+
+                                                        setupdateView(true)
+
+                                                        setPos(index)
+                                                        const u=fetch(elements.proName)
+                                                        setWhole(u)
+
+                                                }}>
                                                     Edit <i class="bi bi-pencil-fill"></i>
                                                 </button>
                                             </td>
                                             <td>
-                                                <button className="btn btn-outline-danger rounded-circle">
+                                                <button className="btn btn-outline-danger">
                                                     Delete <i class="bi bi-trash-fill"></i>
                                                 </button>
                                             </td>
