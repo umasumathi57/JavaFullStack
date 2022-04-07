@@ -5,6 +5,7 @@ import { list } from "./Api";
 import { Hire } from "./NewResources";
 import { Reading } from "./Reading";
 import { Update } from "./Update";
+import { gather } from "./Axiosurl";
 // import { read } from "./Api";
 
 
@@ -20,9 +21,10 @@ export const Home=()=>{
 
 
     
-const hai=()=>
+const hai=async()=>
 {
-    setlocalArr(list())
+    const tee=await gather();
+    setlocalArr(tee.data)
 }
 
 useEffect(()=>
@@ -43,6 +45,7 @@ onClick={
     ()=>
     {
         setCreateView(false)
+        window.location.assign("/")
     }}>
 </button>
 back
@@ -109,7 +112,7 @@ AddNew
                                                 </button>
                                                 {elements.proName}
                                             </td>
-                                            <td>{elements.proId}</td>
+                                            <td>{elements.proRollno}</td>
                                             <td>{elements.proLoc}</td>
                                             <td>
                                                 <button className="btn btn-outline-warning" 

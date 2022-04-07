@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.css"
+import { join } from './Axiosurl'
 export const Hire=()=>
 {
     const[product,setProduct]=useState(
         {
             "proName":"",
-            "proId":0,
+            "proRollno":0,
             "proLoc":""
         })
     const trace=(temp)=>{
@@ -25,10 +26,12 @@ export const Hire=()=>
     }
 
 
-    const add=()=>
+    const add=async()=>
     {
         //join(product)
        // alert("hired"+JSON.stringify(product))
+       const yet=await join(product)
+       alert(yet.data) // .data-property.
     }
     const remove=()=>
     {
@@ -55,9 +58,9 @@ export const Hire=()=>
                     <div className="form-group">
                     <label>ID:</label>
                     <input type="number"
-                    name="proId"
+                    name="proRollno"
                     onChange={trace}
-                    value={product.proId}
+                    value={product.proRollno}
                     className='form-control' />
                     </div>
 

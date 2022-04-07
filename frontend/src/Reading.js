@@ -7,7 +7,8 @@ export const Reading=(sriuma)=>{
     {
         "proName":"",
         "proId":0,
-        "proLoc":""
+        "proLoc":"",
+        "proId":0
     })
 
     useEffect( ()=>{
@@ -16,9 +17,10 @@ export const Reading=(sriuma)=>{
 
 
     )
-    const callReading=()=>{
+    const callReading=async()=>{
 
-        setStudy(read(sriuma.who))
+        const tee=await reachaOne(sriuma.who)
+         setStudy(tee.data)
     }
     return(
 

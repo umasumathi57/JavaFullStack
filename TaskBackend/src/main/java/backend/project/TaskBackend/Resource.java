@@ -1,20 +1,27 @@
 package backend.project.TaskBackend;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 //encapsulation
 
 @Entity   // it will create table 
+@Table(name="Profile")
 //id -primary key generation
 //generated value - value taken automatically
 
 public class Resource {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ProductId")
 	private Integer proId;
+    @Column(name="model")
     private String proName;
+    @Column(name="serailno")
     private Integer proRollno;
+    @Column(name="Area")
     private String proLoc;
     
     //Getter & Setter
