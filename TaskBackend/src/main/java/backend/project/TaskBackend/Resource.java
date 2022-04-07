@@ -50,6 +50,7 @@ public class Resource {
 		this.proLoc = proLoc;
 	}
 	
+	
 	//constructor
 	
 	public Resource(String proName, Integer proRollno, String proLoc) {
