@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,5 +46,11 @@ public class ResourceController
 	public String startUpadte(@RequestBody Resource res)
 	{
 		return service.create(res).getProName()+"has been updated";
+	}
+	
+	@DeleteMapping("/del/{uni}")
+	public String startRemove(@PathVariable("uni") int uni) 
+	{
+		return service.remove(uni);
 	}
 }

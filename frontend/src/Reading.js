@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { read } from "./Api";
+import { reachOne } from "./Axiosurl";
 
 export const Reading=(sriuma)=>{
 
     const[study,setStudy]=useState(
-    {
+    {   
         "proName":"",
-        "proId":0,
+        "proRollno":0,
         "proLoc":"",
+        "proSkills":[],
         "proId":0
+
     })
 
     useEffect( ()=>{
@@ -17,9 +20,10 @@ export const Reading=(sriuma)=>{
 
 
     )
-    const callReading=async()=>{
+    const callReading=async()=>
+    {
 
-        const tee=await reachaOne(sriuma.who)
+        const tee=await reachOne(sriuma.who)
          setStudy(tee.data)
     }
     return(
@@ -30,8 +34,9 @@ export const Reading=(sriuma)=>{
 
                         <div className="card-body">
                             <p>{study.proName}</p>
-                            <p>{study.proId}</p>
+                            <p>{study.proRollno}</p>
                             <p>{study.proLoc}</p>
+                            <p>{study.proSkills}</p>
                         </div>
                     </div>               
                 </div>

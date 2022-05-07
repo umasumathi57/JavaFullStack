@@ -8,8 +8,16 @@ export const Hire=()=>
         {
             "proName":"",
             "proRollno":0,
-            "proLoc":""
+            "proLoc":"",
+            "proSkills":new Array()
         })
+    
+    const tracks=(hey)=>{
+            const{value}=hey.target
+            product.proSkills.push(value)
+        }
+    
+
     const trace=(temp)=>{
         const{name,value}=temp.target
         setProduct(
@@ -73,6 +81,32 @@ export const Hire=()=>
                     value={product.proLoc}
                     className='form-control'/>
                     </div>
+
+                    
+
+                    
+                        <div className="form-check-inline">
+                            <label className="me-sm-5 me-lg-5">Resource skill</label>
+                            <input 
+                                type="checkbox" 
+                                name="java" 
+                                onChange={tracks}
+                                value="Java" 
+                                className="form-check-input"/>Java
+                            <input 
+                                type="checkbox" 
+                                name="python"
+                                onChange={tracks}
+                                value="Python"
+                                className="form-check-input ms-sm-5 ms-md-5 ms-lg-5"/>Python
+                            <input 
+                                type="checkbox" 
+                                name="javascript"
+                                onChange={tracks}
+                                value="Java Script" 
+                                className="form-check-input ms-sm-5 ms-md-5 ms-lg-5"/>Java Script
+                        </div>
+
 
                     <div>
                         <button onClick={add} className='btn btn-outline-success col-4'>Select</button>

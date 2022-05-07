@@ -8,8 +8,24 @@ export const join=async(object)=>{
     return hey;
 }
 
-export const gather=async=()=>{
+export const gather=async()=>{
 
-    const yet=await axios.get(`${connect}/home`)
+    const yet = await axios.get(`${connect}/home`)
     return yet;
+}
+
+export const reachOne=async(position)=>{
+
+    const te = await axios.get(`${connect}/getting/${position}`)
+    return te;
+}
+
+export const updateOne=async(obj)=>{
+    const hey=await axios.put(`${connect}/update`,obj)
+    return hey;
+}
+
+export const erase=async(d)=>{
+    const clr=await axios.delete(`${connect}/del/${d}`)
+    return clr;
 }

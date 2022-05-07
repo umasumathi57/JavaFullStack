@@ -27,5 +27,10 @@ public class ResourceService {
 		return rep.findById(we);
 	}
 	
+	public String remove(int key)
+	{
+		String clear=rep.findById(key).orElse(new Resource()).getProName()+"has been removed";
+		return clear;
+	}
 
 }

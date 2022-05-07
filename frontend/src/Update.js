@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { change } from "./Api";
+import {updateOne} from "./Axiosurl";
 
 export const Update=(candy)=>{
 
-    const[pos]=useState(candy.who)
+    //const[pos]=useState(candy.who)
 
 
     const[product,setProduct]=useState(
         {
-            "proName":candy.mention.proName,
             "proId":candy.mention.proId,
-            "proLoc":candy.mention.proLoc
+            "proName":candy.mention.proName,
+            "proRollno":candy.mention.proRollno,            
+            "proLoc":candy.mention.proLoc,
+            "proSkills":candy.mention.proSkills
+
         })
+
+        const tracks=(hey)=>{
+            const{value}=hey.target
+            product.resSkills.push(value)
+        }
 
          const trace=(choco)=>{
 
-            const[name,value]=choco.target;
+            const{name,value}=choco.target;
             setProduct(
 
                 (prev)=>{
@@ -25,15 +34,28 @@ export const Update=(candy)=>{
                     }
                 }
             )
-
-
         }
 
+        useEffect(()=>{
 
-     const alter=()=>{
+            let str=""
+            product.proSkills.map((data)=>
+            {
+                str+=data+","
+            })
+            product.proSkills=str
 
-        change(pos,product)
-          alert("Updates done")   
+        } 
+            ,[])
+
+
+     const alter=async()=>{
+
+       // change(pos,product)
+       product.proSkills=product.proSkills.split(",")
+        const ti = await updateOne(product)
+        alert(ti.data)
+         // alert("Updates done")   
     }
 
      const remove=()=>{
@@ -59,9 +81,9 @@ return(
                 <div className="form-group">
                 <label>ID:</label>
                 <input type="number"
-                name="proId"
+                name="proRollno"
                 onChange={trace}
-                value={product.proId}
+                value={product.proRollno}
                 className='form-control' />
                 </div>
 

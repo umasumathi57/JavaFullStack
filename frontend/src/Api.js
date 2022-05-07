@@ -2,18 +2,24 @@ let arr=[
     {
         "proName":"Annakili",
         "proId":1,
-        "proLoc":"Valapady"
+        "proLoc":"Valapady",
+        "proSkills":["Java","JavaScript","Python"]
+
     },
     {
     "proName":"Aarthi",
     "proId":2,
-    "proLoc":"Salem"
+    "proLoc":"Salem",
+    "proSkills":["Java","Python"]
+
 },
 
 {
     "proName":"Manoj",
     "proId":3,
-    "proLoc":"Namakkal"
+    "proLoc":"Namakkal",
+    "proSkills":["Python"]
+
 
 }]
 

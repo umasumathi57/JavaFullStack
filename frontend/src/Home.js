@@ -5,7 +5,8 @@ import { list } from "./Api";
 import { Hire } from "./NewResources";
 import { Reading } from "./Reading";
 import { Update } from "./Update";
-import { gather } from "./Axiosurl";
+import { erase, gather } from "./Axiosurl";
+import axios from "axios";
 // import { read } from "./Api";
 
 
@@ -32,7 +33,14 @@ useEffect(()=>
     hai()
 },[]
 
-)  
+)
+
+const toErase=async(value)=>
+{
+    const temp=await erase(value)
+    alert(temp.data)
+    window.location.assign("/")
+}
   return(
 
   <div>          
@@ -53,12 +61,14 @@ back
 :
 (updateView)?
 <>
-<Update who={pos} mention={whole}/>
+<Update mention={whole}/>
 <button className="btn btn-outline-warning" 
 onClick={
 ()=>{
 
     setupdateView(false)
+    window.location.assign("/")
+
 }
 }>
     <i className="bi bi-skip-backward-btn-fill"></i> Back
@@ -94,8 +104,9 @@ AddNew
                                 <thead>
                                     <tr>
                                         <th> Name</th>
-                                        <th> Id</th>
+                                        <th> Rollno</th>
                                         <th>Location</th>
+                                        <th>Skills</th>
                                         <th>Action</th>
                                         
                                     </tr>
@@ -106,7 +117,7 @@ AddNew
                                             <td>
                                                 <button class="btn btn-outline-primary" onClick={()=>{
                                                     setreadView(true)
-                                                    setPos(index)
+                                                    setPos(elements.proId) //elements.proId ?
                                                 }}>
                                                     <i class="bi bi-book-half"></i>
                                                 </button>
@@ -114,22 +125,29 @@ AddNew
                                             </td>
                                             <td>{elements.proRollno}</td>
                                             <td>{elements.proLoc}</td>
+                                            <td>{elements.proSkills}</td>
                                             <td>
                                                 <button className="btn btn-outline-warning" 
                                                 onClick={()=>{
 
                                                         setupdateView(true)
 
-                                                        setPos(index)
-                                                        const u=fetch(elements.proName)
-                                                        setWhole(u)
+                                                       // setPos(index)
+                                                        //const u=fetch(elements.proName)
+                                                        setWhole(elements)
 
                                                 }}>
                                                     Edit <i class="bi bi-pencil-fill"></i>
                                                 </button>
                                             </td>
                                             <td>
-                                                <button className="btn btn-outline-danger">
+                                                <button className="btn btn-outline-danger"
+                                                   onClick={()=>
+                                                   {
+                                                        toErase(elements.proId)
+                                                   }
+
+                                                   }>
                                                     Delete <i class="bi bi-trash-fill"></i>
                                                 </button>
                                             </td>
