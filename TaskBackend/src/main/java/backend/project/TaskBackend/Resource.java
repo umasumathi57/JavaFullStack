@@ -62,6 +62,17 @@ public class Resource {
 		return "Resource [proId=" + proId + ", proName=" + proName + ", proRollno=" + proRollno + ", proLoc=" + proLoc
 				+ ", proSkills=" + Arrays.toString(proSkills) + "]";
 	}
+	
+	// Constructor with primary key
+	public Resource(Integer proId, String proName, Integer proRollno, String proLoc, String[] proSkills) {
+		super();
+		this.proId = proId;
+		this.proName = proName;
+		this.proRollno = proRollno;
+		this.proLoc = proLoc;
+		this.proSkills = proSkills;
+	}
+	//without primary key
 	public Resource(String proName, Integer proRollno, String proLoc, String[] proSkills) {
 		super();
 		this.proName = proName;

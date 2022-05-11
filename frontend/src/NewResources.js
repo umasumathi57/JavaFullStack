@@ -26,12 +26,11 @@ export const Hire=()=>
                 return{
                     ...last,
                     [name]:value
-                }
+                      }    
             }
 
-        )
-
-    }
+                  )
+                       }
 
 
     const add=async()=>

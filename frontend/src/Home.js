@@ -31,9 +31,8 @@ const hai=async()=>
 useEffect(()=>
 {
     hai()
-},[]
-
-)
+}
+,[])
 
 const toErase=async(value)=>
 {
@@ -144,6 +143,7 @@ AddNew
                                                 <button className="btn btn-outline-danger"
                                                    onClick={()=>
                                                    {
+                                                        // toErase(elements.proId)
                                                         toErase(elements.proId)
                                                    }
 
